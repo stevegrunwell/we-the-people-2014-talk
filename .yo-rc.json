@@ -1,0 +1,7 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "We The People",
+    "packageVersion": "0.1.0",
+    "useSass": true
+  }
+}
