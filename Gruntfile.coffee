@@ -31,7 +31,7 @@ module.exports = (grunt) ->
             jshint:
                 files: ['js/*.js']
                 tasks: ['jshint']
-        
+
             sass:
                 files: ['css/source/theme.scss']
                 tasks: ['sass']
@@ -41,7 +41,7 @@ module.exports = (grunt) ->
             theme:
                 files:
                     'css/theme.css': 'css/source/theme.scss'
-        
+
         connect:
 
             livereload:
@@ -59,6 +59,8 @@ module.exports = (grunt) ->
             options:
                 indentation:
                     value: 4
+                max_line_length:
+                    value: 'ignore'
 
             all: ['Gruntfile.coffee']
 
@@ -88,9 +90,23 @@ module.exports = (grunt) ->
                     filter: 'isFile'
                 }]
 
+        buildcontrol:
+
+            options:
+                dir: 'dist',
+                commit: true,
+                push: true,
+                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+
+            pages:
+                options:
+                    remote: 'git@github.com:stevegrunwell/we-the-people-2014-talk.git',
+                    branch: 'gh-pages'
+
 
     # Load all grunt tasks.
     require('load-grunt-tasks')(grunt)
+    grunt.loadNpmTasks('grunt-build-control')
 
     grunt.registerTask 'buildIndex',
         'Build index.html from templates/_index.html and slides/list.json.',
@@ -128,6 +144,11 @@ module.exports = (grunt) ->
             'sass'
             'buildIndex'
             'copy'
+        ]
+
+    grunt.registerTask 'deploy',
+        'Deploy the presentation to Github Pages.', [
+            'buildcontrol'
         ]
 
     # Define default task.
