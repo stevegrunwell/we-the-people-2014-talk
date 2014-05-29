@@ -60,4 +60,17 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
   h1, h2, h3, h4, h5, h6, ul, ol, p {
     margin-bottom: 1em;
   }
+  .video-wrap {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 65%;
+    video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+  }
 }
