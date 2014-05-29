@@ -148,3 +148,14 @@ body {
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal ul, .reveal ol, .reveal p {
   margin-bottom: 1em; }
+.reveal .video-wrap {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 65%; }
+  .reveal .video-wrap video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }

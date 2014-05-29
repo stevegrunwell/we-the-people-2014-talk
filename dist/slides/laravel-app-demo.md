@@ -1,3 +1,3 @@
 ##  Petition The People: Demo
 
-A screencast should go here.
+<div class="video-wrap"><video data-autoplay src="dist/petition-the-people-demo.mov"></video></div>
